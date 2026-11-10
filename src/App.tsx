@@ -1,8 +1,7 @@
 import { useState, useMemo } from 'react';
 import { 
   Search, ExternalLink, Github, Code2, Smartphone, Bot, Layout, 
-  Database, Sparkles, Filter, Users, ArrowUpRight, CheckCircle2, 
-  MessageSquare, Star, Laptop, ShieldCheck, HeartHandshake, Eye
+  Database, Sparkles, X, HeartHandshake, Eye
 } from 'lucide-react';
 
 interface Project {
@@ -147,17 +146,17 @@ export default function App() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col selection:bg-emerald-600 selection:text-white">
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Logo Pondok Informatika" className="w-10 h-10 object-contain drop-shadow" />
+            <img src="/logo.png" alt="Logo Pondok Informatika" className="w-10 h-10 object-contain drop-shadow-sm" />
             <div>
-              <span className="font-extrabold text-lg tracking-tight text-white block leading-none">
-                Katalog<span className="text-emerald-400">Santri</span>
+              <span className="font-extrabold text-lg tracking-tight text-slate-950 block leading-none">
+                Katalog<span className="text-emerald-600">Santri</span>
               </span>
-              <span className="text-[10px] text-slate-400 font-medium tracking-wider uppercase">
+              <span className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase">
                 Pondok Informatika Portfolio
               </span>
             </div>
@@ -166,7 +165,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <a
               href="https://profile.pondokinformatika.id"
-              className="hidden sm:inline-flex px-4 py-2 text-xs font-bold text-slate-300 hover:text-white transition-colors"
+              className="hidden sm:inline-flex px-4 py-2 text-xs font-bold text-slate-700 hover:text-emerald-600 transition-colors"
             >
               Tentang Pondok
             </a>
@@ -174,7 +173,7 @@ export default function App() {
               href="https://wa.me/6282293827200?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20untuk%20merekrut%20atau%20bekerja%20sama%20dengan%20talenta%20santri."
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20 transition-all flex items-center gap-1.5"
             >
               <HeartHandshake className="w-4 h-4" />
               <span>Hire Talenta Santri</span>
@@ -184,22 +183,20 @@ export default function App() {
       </nav>
 
       {/* HEADER SECTION */}
-      <header className="pt-32 pb-12 sm:pt-40 sm:pb-16 text-center relative overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
-
+      <header className="pt-32 pb-12 sm:pt-40 sm:pb-16 text-center relative bg-gradient-to-b from-emerald-50/60 via-white to-slate-50/50">
         <div className="max-w-4xl mx-auto px-4 relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-4">
-            <Code2 className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-800 text-xs font-bold mb-4 shadow-sm">
+            <Code2 className="w-3.5 h-3.5 text-emerald-600" />
             Showcase Hasil Belajar &amp; Rekayasa Software Santri
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Karya Nyata Generasi <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Teknologi Qur'ani</span>
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
+            Karya Nyata Generasi <span className="text-emerald-600">Teknologi Qur'ani</span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
             Jelajahi berbagai proyek aplikasi web, mobile, bot otomatisasi, dan arsitektur sistem yang dikembangkan santri dengan standar industri teknologi terkini.
           </p>
 
-          {/* SEARCH & FILTERS */}
+          {/* SEARCH */}
           <div className="mt-8 max-w-xl mx-auto">
             <div className="relative">
               <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
@@ -208,7 +205,7 @@ export default function App() {
                 placeholder="Cari nama proyek, teknologi (React, Laravel, Flutter), atau nama santri..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-800 rounded-2xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-all shadow-inner"
+                className="w-full pl-11 pr-4 py-3 bg-white border border-slate-300 rounded-2xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition-all shadow-sm"
               />
             </div>
           </div>
@@ -225,10 +222,10 @@ export default function App() {
               <button
                 key={c.key}
                 onClick={() => setSelectedCategory(c.key)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm ${
                   active 
-                    ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20' 
-                    : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                    ? 'bg-emerald-600 text-white shadow-emerald-600/20' 
+                    : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -243,104 +240,165 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 flex-1">
         {filteredProjects.length === 0 ? (
           <div className="py-20 text-center">
-            <p className="text-slate-400 text-sm">Tidak ada proyek yang sesuai dengan pencarian Anda.</p>
+            <p className="text-slate-500 text-sm">Tidak ada proyek yang sesuai dengan pencarian Anda.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((p) => (
-              <div 
+              <div
                 key={p.id}
-                className="rounded-3xl bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 flex flex-col justify-between hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 group shadow-lg"
+                className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-emerald-300 transition-all flex flex-col group"
               >
-                <div>
-                  {/* Card Header */}
+                <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-emerald-400 border border-slate-700/60">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                       {p.categoryLabel}
                     </span>
                     {p.featured && (
-                      <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center gap-1">
-                        <Star className="w-2.5 h-2.5 fill-current" />
-                        Pilihan
+                      <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+                        <Sparkles className="w-3 h-3" /> Unggulan
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-950 group-hover:text-emerald-700 transition-colors mb-2">
                     {p.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-5">
                     {p.desc}
                   </p>
 
-                  {/* Tech stack tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {p.tech.map((t, i) => (
-                      <span 
-                        key={i}
-                        className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-950 text-slate-300 border border-slate-800"
+                  <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <img
+                        src={p.santri.avatar}
+                        alt={p.santri.name}
+                        className="w-8 h-8 rounded-full object-cover border border-slate-200"
+                      />
+                      <div>
+                        <p className="text-xs font-bold text-slate-900 leading-tight">{p.santri.name}</p>
+                        <p className="text-[10px] text-slate-500">{p.santri.role}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setActiveProject(p)}
+                        className="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors cursor-pointer"
+                        title="Lihat Detail"
                       >
-                        {t}
-                      </span>
-                    ))}
+                        <Eye className="w-4 h-4" />
+                      </button>
+                      <a
+                        href={p.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-700 border border-emerald-200 transition-all"
+                        title="Buka Demo"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Card Footer: Creator info + Link */}
-                <div className="pt-5 mt-5 border-t border-slate-800/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <img 
-                      src={p.santri.avatar} 
-                      alt={p.santri.name} 
-                      className="w-8 h-8 rounded-full object-cover border border-slate-700" 
-                    />
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-200 leading-tight">{p.santri.name}</h4>
-                      <p className="text-[10px] text-slate-400">{p.santri.role} • {p.santri.angkatan}</p>
-                    </div>
-                  </div>
-
-                  <a
-                    href={p.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-8 h-8 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 flex items-center justify-center transition-colors"
-                    title="Buka Demo Proyek"
-                  >
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                {/* Tech Pills */}
+                <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap gap-1.5">
+                  {p.tech.map((t, i) => (
+                    <span key={i} className="text-[10px] font-semibold text-slate-600 bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         )}
-
-        {/* HIRE BANNER */}
-        <div className="mt-16 rounded-3xl p-8 bg-gradient-to-r from-emerald-950/60 via-slate-900 to-slate-900 border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Kemitraan Industri</span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
-              Butuh Software Engineer Berkualitas &amp; Berakhlak?
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-xl">
-              Kami menyalurkan lulusan santri siap kerja full-time, magang industri, atau pengerjaan project freelance software house Anda.
-            </p>
-          </div>
-
-          <a
-            href="https://wa.me/6282293827200?text=Halo%20Admin%20Pondok%20Informatika,%20kami%20ingin%20membahas%20kebutuhan%20rekrutmen/proyek%20IT."
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm shadow-xl shadow-emerald-500/20 whitespace-nowrap transition-all"
-          >
-            Konsultasi Rekrutmen WhatsApp
-          </a>
-        </div>
       </main>
 
+      {/* DETAIL MODAL */}
+      {activeProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="w-full max-w-xl rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-2xl relative">
+            <button
+              onClick={() => setActiveProject(null)}
+              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-950 hover:bg-slate-200 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              {activeProject.categoryLabel}
+            </span>
+
+            <h2 className="text-xl sm:text-2xl font-black text-slate-950 mt-3 mb-2">
+              {activeProject.title}
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              {activeProject.desc}
+            </p>
+
+            <div className="mb-6">
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">Teknologi Digunakan</h4>
+              <div className="flex flex-wrap gap-2">
+                {activeProject.tech.map((t, i) => (
+                  <span key={i} className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <img
+                  src={activeProject.santri.avatar}
+                  alt={activeProject.santri.name}
+                  className="w-10 h-10 rounded-full object-cover border border-slate-200"
+                />
+                <div>
+                  <h5 className="text-xs font-bold text-slate-950">{activeProject.santri.name}</h5>
+                  <p className="text-[11px] text-slate-500">{activeProject.santri.role} • {activeProject.santri.angkatan}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href={activeProject.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20"
+              >
+                <span>Kunjungi Demo Langsung</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href={`https://wa.me/6282293827200?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(activeProject.title)}%20karya%20${encodeURIComponent(activeProject.santri.name)}.`}
+                target="_blank"
+                rel="noreferrer"
+                className="py-3 px-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm"
+              >
+                Tanya Creator
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* FOOTER */}
-      <footer className="bg-slate-950 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
-        <p>&copy; {new Date().getFullYear()} Katalog Karya Santri — Pondok Informatika. All rights reserved.</p>
+      <footer className="bg-slate-50 border-t border-slate-200 py-10 text-center text-xs text-slate-600">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>&copy; {new Date().getFullYear()} Katalog Karya Santri — Pondok Informatika.</p>
+          <div className="flex items-center gap-4 text-slate-500 font-medium">
+            <a href="https://pondokinformatika.id" className="hover:text-slate-900">Portal Utama</a>
+            <a href="https://profile.pondokinformatika.id" className="hover:text-slate-900">Profile</a>
+            <a href="https://produk.pondokinformatika.id" className="hover:text-slate-900">Produk</a>
+            <a href="https://donasi.pondokinformatika.id" className="hover:text-slate-900">Donasi</a>
+          </div>
+        </div>
       </footer>
     </div>
   );
