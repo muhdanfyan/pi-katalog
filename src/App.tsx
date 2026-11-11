@@ -170,7 +170,7 @@ export default function App() {
               Tentang Pondok
             </a>
             <a
-              href="https://wa.me/6282293827200?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20untuk%20merekrut%20atau%20bekerja%20sama%20dengan%20talenta%20santri."
+              href="https://wa.me/6283134086899?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20untuk%20merekrut%20atau%20bekerja%20sama%20dengan%20talenta%20santri."
               target="_blank"
               rel="noreferrer"
               className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20 transition-all flex items-center gap-1.5"
@@ -376,7 +376,7 @@ export default function App() {
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a
-                href={`https://wa.me/6282293827200?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(activeProject.title)}%20karya%20${encodeURIComponent(activeProject.santri.name)}.`}
+                href={`https://wa.me/6283134086899?text=Halo%20Pondok%20Informatika,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(activeProject.title)}%20karya%20${encodeURIComponent(activeProject.santri.name)}.`}
                 target="_blank"
                 rel="noreferrer"
                 className="py-3 px-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm"
